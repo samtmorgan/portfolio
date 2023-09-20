@@ -12,9 +12,16 @@ const PLACEHOLDER_PROJECTS = [
 
 export default function Home() {
 	return (
-		<main className={styles.main}>
-			<Box sx={{ alignSelf: 'flex-start' }}>
-				<Typography variant="h1">Sam T Morgan</Typography>
+		<Box className={styles.container}>
+			<Box className={styles.heading}>
+				<Typography
+					sx={{
+						fontSize: { sm: '4rem', xs: '2rem' },
+						fontWeight: 'bold',
+					}}
+				>
+					Sam T Morgan
+				</Typography>
 				<Typography variant="body1">Full Stack Developer</Typography>
 				<Typography variant="body1">
 					Designing and building things for the web.
@@ -22,7 +29,7 @@ export default function Home() {
 			</Box>
 			<Box sx={{ mt: 20 }}>
 				<Box sx={{ mb: 5, display: 'flex', justifyContent: 'center' }}>
-					<Typography variant="h4">Selected Projects</Typography>
+					<Typography variant="h4">Selected Project</Typography>
 				</Box>
 
 				<Grid
@@ -30,8 +37,8 @@ export default function Home() {
 					// rowSpacing={3} columnSpacing={3}
 					spacing={10}
 				>
-					{PLACEHOLDER_PROJECTS.map((project) => (
-						<Grid item key={project.label} xs={6}>
+					{PLACEHOLDER_PROJECTS.slice(0, 1).map((project) => (
+						<Grid item key={project.label} xs={12} sm={12}>
 							<MediaCard
 								heading={project.label}
 								text={project.description}
@@ -40,6 +47,6 @@ export default function Home() {
 					))}
 				</Grid>
 			</Box>
-		</main>
+		</Box>
 	);
 }
