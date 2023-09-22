@@ -48,7 +48,7 @@ export default function MenuDrawer({
 			<Box
 				sx={{
 					zIndex: 2000,
-					height: '48px',
+					height: '56px',
 					display: 'flex',
 					padding: '0.5rem',
 					width: '100%',
@@ -65,7 +65,7 @@ export default function MenuDrawer({
 					}}
 				>
 					<IconButton
-						size="large"
+						// size="large"
 						// edge="start"
 						color="primary"
 						aria-label="menu"
