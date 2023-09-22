@@ -55,7 +55,7 @@ export function Header({
 			sx={{
 				position: 'fixed',
 				zIndex: 2000,
-				height: '48px',
+				height: '56px',
 				display: 'flex',
 				padding: '0.5rem',
 				width: '100%',
@@ -72,7 +72,7 @@ export function Header({
 				}}
 			>
 				<IconButton
-					size="large"
+					// size="large"
 					// edge="start"
 					color="primary"
 					aria-label="menu"
