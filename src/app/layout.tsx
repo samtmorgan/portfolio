@@ -11,7 +11,7 @@ const metadata = {
 	description: 'Sam T Morgan Full Stack Developer Portfolio',
 };
 
-const DRAWER_WIDTH = 240;
+// const DRAWER_WIDTH = 240;
 
 const LINKS = [
 	{ text: 'Home', href: '/' },

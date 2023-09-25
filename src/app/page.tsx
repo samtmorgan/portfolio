@@ -1,7 +1,8 @@
-import Image from 'next/image';
-import styles from './page.module.css';
+import React from 'react';
+// import Image from 'next/image';
 import { Box, Grid, Typography } from '@mui/material';
 import MediaCard from '@/components/MediaCard';
+import styles from './page.module.css';
 
 const PLACEHOLDER_PROJECTS = [
 	{ label: 'Project 1', description: 'This is a description of project 1' },
