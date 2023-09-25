@@ -5,21 +5,13 @@ import Typography from '@mui/material/Typography';
 import styles from '../page.module.css';
 
 export default function AboutPage() {
-	return (
-		<Container className={styles.pageContainer}>
-			<Box
-			// sx={{
-			// 	display: 'flex',
-			// 	flexDirection: 'column',
-			// 	justifyContent: 'center',
-			//     alignItems: 'center',
-
-			// }}
-			>
-				<Typography variant="body1" gutterBottom>
-					AboutPage
-				</Typography>
-			</Box>
-		</Container>
-	);
+  return (
+    <Container className={styles.pageContainer}>
+      <Box>
+        <Typography variant="body1" gutterBottom>
+          AboutPage
+        </Typography>
+      </Box>
+    </Container>
+  );
 }
