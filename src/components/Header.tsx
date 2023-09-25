@@ -129,12 +129,12 @@ export function Header({
 				flexDirection: 'row-reverse',
 			}}
 		>
-			<svg
+			{/* <svg
 				style={{ position: 'absolute' }}
 				viewBox={`0 0 ${width} ${width}`}
 			>
 				<Squiggles />
-			</svg>
+			</svg> */}
 
 			<Box
 				sx={{
