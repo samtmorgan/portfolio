@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 import Link from 'next/link';
 import Box from '@mui/material/Box';
@@ -7,6 +9,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useElementSize } from 'usehooks-ts';
+import MenuDrawer from './MenuDrawer';
 
 const ICON_LINKS = [
 	{
@@ -21,17 +24,30 @@ const ICON_LINKS = [
 	},
 ];
 
-export function Header({
-	open,
-	setDrawerOpen,
-	links,
-}: {
-	open: boolean;
-	onClose: () => void;
-	setDrawerOpen: (open: boolean) => void;
-	links: { text: string; href: string }[];
-}) {
+const LINKS = [
+	{ text: 'Home', href: '/' },
+	{ text: 'About', href: '/about' },
+	{ text: 'Projects', href: '/#projects' },
+	{ text: 'Contact', href: '/contact' },
+];
+
+export function Header() {
 	const [headerRef, { width, height }] = useElementSize();
+
+	const [drawerOpen, setDrawerOpen] = React.useState(false);
+
+	// const closeDrawer =
+	// 	() => (event: React.KeyboardEvent | React.MouseEvent) => {
+	// 		if (
+	// 			event.type === 'keydown' &&
+	// 			((event as React.KeyboardEvent).key === 'Tab' ||
+	// 				(event as React.KeyboardEvent).key === 'Shift')
+	// 		) {
+	// 			return;
+	// 		}
+
+	// 		setDrawerOpen(false);
+	// 	};
 
 	React.useEffect(() => {
 		console.log({ width, height });
@@ -116,82 +132,118 @@ export function Header({
 	// // };
 
 	return (
-		<Box
-			ref={headerRef}
-			sx={{
-				position: 'fixed',
-				zIndex: 2000,
-				height: '56px',
-				display: 'flex',
-				padding: '0.5rem',
-				width: '100%',
-				backgroundColor: 'background.paper',
-				flexDirection: 'row-reverse',
-			}}
-		>
-			{/* <svg
+		<>
+			<Box
+				ref={headerRef}
+				sx={{
+					position: 'fixed',
+					top: 0,
+					zIndex: 2000,
+					height: '56px',
+					display: 'flex',
+					padding: '0.5rem',
+					width: '100%',
+					backgroundColor: 'background.paper',
+					flexDirection: 'row-reverse',
+					paddingLeft: { sm: '12rem' },
+					paddingRight: { sm: '12rem' },
+				}}
+			>
+				{/* <svg
 				style={{ position: 'absolute' }}
 				viewBox={`0 0 ${width} ${width}`}
 			>
 				<Squiggles />
 			</svg> */}
 
-			<Box
-				sx={{
-					display: {
-						xs: 'flex',
-						sm: 'none',
-					},
-				}}
-			>
-				<IconButton
-					// size="large"
-					// edge="start"
-					color="primary"
-					aria-label="menu"
-					sx={{ mr: '0.2rem' }}
-					onClick={() => setDrawerOpen(!open)}
+				<Box
+					sx={{
+						display: {
+							xs: 'flex',
+							sm: 'none',
+						},
+					}}
 				>
-					<MenuIcon />
-				</IconButton>
-			</Box>
-
-			<Box
-				sx={{
-					display: {
-						xs: 'none',
-						sm: 'flex',
-					},
-					gap: '0.5rem',
-				}}
-			>
-				{links.map(({ text, href }) => (
-					<Button
-						key={text}
-						// sx={{ color: '#fff' }}
-						component={Link}
-						href={href}
-					>
-						{text}
-					</Button>
-				))}
-				{ICON_LINKS.map((item, index) => (
 					<IconButton
-						key={`${item.label}-${index}}`}
 						// size="large"
-						edge="start"
+						// edge="start"
 						color="primary"
-						aria-label={item.label}
-						sx={{ mr: '0.2rem', ml: '0.2rem' }}
-						component={Link}
-						href={item.href}
-						target="_blank"
-						rel="noopener noreferrer"
+						aria-label="menu"
+						sx={{ mr: '0.2rem' }}
+						onClick={() => setDrawerOpen(!drawerOpen)}
 					>
-						<item.icon />
+						<MenuIcon
+							sx={{
+								transform: !drawerOpen
+									? 'rotate( -180deg )'
+									: '',
+								transition: 'transform 200ms ease',
+							}}
+						/>
+						{/* {drawerOpen ? (
+							<CloseMenu
+								sx={{
+									transform: drawerOpen
+										? 'rotate( -180deg )'
+										: '',
+									transition: 'transform 2200ms ease',
+								}}
+							/>
+						) : (
+							<MenuIcon
+								sx={{
+									transform: !drawerOpen
+										? 'rotate( -180deg )'
+										: '',
+									transition: 'transform 2200ms ease',
+								}}
+							/>
+						)} */}
 					</IconButton>
-				))}
+				</Box>
+
+				<Box
+					sx={{
+						display: {
+							xs: 'none',
+							sm: 'flex',
+						},
+						gap: '0.5rem',
+					}}
+				>
+					{LINKS.map(({ text, href }) => (
+						<Button
+							key={text}
+							// sx={{ color: '#fff' }}
+							component={Link}
+							href={href}
+						>
+							{text}
+						</Button>
+					))}
+					{ICON_LINKS.map((item, index) => (
+						<IconButton
+							key={`${item.label}-${index}}`}
+							// size="large"
+							edge="start"
+							color="primary"
+							aria-label={item.label}
+							sx={{ mr: '0.2rem', ml: '0.2rem' }}
+							component={Link}
+							href={item.href}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<item.icon />
+						</IconButton>
+					))}
+				</Box>
 			</Box>
-		</Box>
+			<MenuDrawer
+				links={LINKS}
+				open={drawerOpen}
+				onClose={() => setDrawerOpen(false)}
+			/>
+		</>
 	);
 }

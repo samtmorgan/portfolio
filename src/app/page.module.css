@@ -12,9 +12,9 @@
 	flex-direction: column;
 	/* justify-content: space-between; */
 	align-items: center;
-	padding: 0 6rem;
+	padding: 0 12rem;
 	min-height: 100vh;
-	margin-top: 48px;
+	padding-top: 56px;
 }
 
 .pageContainer {
@@ -22,7 +22,7 @@
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	margin-top: 48px;
+	padding-top: 56px;
 	min-height: 100vh;
 }
 
@@ -159,7 +159,8 @@
 		background-color: blue;
 	} */
 	.container {
-		padding: 0;
+		padding: 56px 1rem 0;
+		/* padding-top: 56px; */
 	}
 	.content {
 		padding: 4rem;
