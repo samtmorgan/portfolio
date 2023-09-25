@@ -37,83 +37,83 @@ export function Header({
 		console.log({ width, height });
 	}, [width, height]);
 
-	const d = 'M 10,10 L 20,20 L 40,0 L 60,20 L 80,0 L 90, 10';
+	// const d = 'M 10,10 L 20,20 L 40,0 L 60,20 L 80,0 L 90, 10';
 
-	const squiggle = <path d={d} />;
+	// const squiggle = <path d={d} />;
 
-	const Squiggles = () => {
-		const source = Array.from({ length: 30 }).map(() => squiggle);
-		const getRand = (min: number, max: number) =>
-			Math.random() * (max - min) + min;
-		// const box = { width: height, height };
-		// const boxWidth = (width / height) * height;
-		return source.map((item, index) => (
-			// <path
-			// 	d={d}
-			// 	key={index}
-			// 	transform={`scale(${(index + 1) * 0.1}) translate(${
-			// 		10 + index
-			// 	})`}
-			// 	fill="transparent"
-			// 	stroke="black"
-			// 	strokeWidth={2}
-			// 	strokeLinecap="round"
-			// />
+	// // const Squiggles = () => {
+	// // 	const source = Array.from({ length: 30 }).map(() => squiggle);
+	// // 	const getRand = (min: number, max: number) =>
+	// // 		Math.random() * (max - min) + min;
+	// // 	// const box = { width: height, height };
+	// // 	// const boxWidth = (width / height) * height;
+	// // 	return source.map((item, index) => (
+	// // 		// <path
+	// // 		// 	d={d}
+	// // 		// 	key={index}
+	// // 		// 	transform={`scale(${(index + 1) * 0.1}) translate(${
+	// // 		// 		10 + index
+	// // 		// 	})`}
+	// // 		// 	fill="transparent"
+	// // 		// 	stroke="black"
+	// // 		// 	strokeWidth={2}
+	// // 		// 	strokeLinecap="round"
+	// // 		// />
 
-			// animates circles
-			<circle
-				key={index}
-				cx={getRand(0, width)}
-				cy={getRand(0, height)}
-				r={2}
-				fill="coral"
-			>
-				<animate
-					attributeName="r"
-					values={`${getRand(2, 7)}`}
-					dur="10s"
-					repeatCount="indefinite"
-				/>
-				<animate
-					attributeName="cx"
-					values={`${getRand(0, width)};${getRand(
-						0,
-						width
-					)};${getRand(0, width)}`}
-					dur={`${getRand(1, 10)}s`}
-					repeatCount="indefinite"
-				/>
-				<animate
-					attributeName="cy"
-					values={`${getRand(0, height)};${getRand(
-						0,
-						height
-					)};${getRand(0, height)}`}
-					dur={`${getRand(1, 3)}s`}
-					repeatCount="indefinite"
-				/>
-			</circle>
+	// // 		// animates circles
+	// // 		<circle
+	// // 			key={index}
+	// // 			cx={getRand(0, width)}
+	// // 			cy={getRand(0, height)}
+	// // 			r={2}
+	// // 			fill="coral"
+	// // 		>
+	// // 			<animate
+	// // 				attributeName="r"
+	// // 				values={`${getRand(2, 7)}`}
+	// // 				dur="10s"
+	// // 				repeatCount="indefinite"
+	// // 			/>
+	// // 			<animate
+	// // 				attributeName="cx"
+	// // 				values={`${getRand(0, width)};${getRand(
+	// // 					0,
+	// // 					width
+	// // 				)};${getRand(0, width)}`}
+	// // 				dur={`${getRand(1, 10)}s`}
+	// // 				repeatCount="indefinite"
+	// // 			/>
+	// // 			<animate
+	// // 				attributeName="cy"
+	// // 				values={`${getRand(0, height)};${getRand(
+	// // 					0,
+	// // 					height
+	// // 				)};${getRand(0, height)}`}
+	// // 				dur={`${getRand(1, 3)}s`}
+	// // 				repeatCount="indefinite"
+	// // 			/>
+	// // 		</circle>
 
-			// simple circle
-			// <circle
-			// 	key={index}
-			// 	cx={getRand(0, width)}
-			// 	cy={getRand(0, height)}
-			// 	r={2}
-			// 	fill="coral"
-			// />
+	// // 		// simple circle
+	// // 		// <circle
+	// // 		// 	key={index}
+	// // 		// 	cx={getRand(0, width)}
+	// // 		// 	cy={getRand(0, height)}
+	// // 		// 	r={2}
+	// // 		// 	fill="coral"
+	// // 		// />
 
-			// <rect
-			// 	key={index}
-			// 	x={index * height}
-			// 	y={0}
-			// 	width={box.width}
-			// 	height={box.height}
-			// 	fill="transparent"
-			// 	stroke="red"
-			// />
-		));
-	};
+	// // 		// <rect
+	// // 		// 	key={index}
+	// // 		// 	x={index * height}
+	// // 		// 	y={0}
+	// // 		// 	width={box.width}
+	// // 		// 	height={box.height}
+	// // 		// 	fill="transparent"
+	// // 		// 	stroke="red"
+	// // 		// />
+	// // 	));
+	// // };
 
 	return (
 		<Box
@@ -129,12 +129,12 @@ export function Header({
 				flexDirection: 'row-reverse',
 			}}
 		>
-			<svg
+			{/* <svg
 				style={{ position: 'absolute' }}
 				viewBox={`0 0 ${width} ${width}`}
 			>
 				<Squiggles />
-			</svg>
+			</svg> */}
 
 			<Box
 				sx={{
