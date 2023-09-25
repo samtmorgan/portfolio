@@ -1,9 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import CloseMenu from '@mui/icons-material/Close';
 import {
 	Drawer,
-	IconButton,
 	List,
 	ListItem,
 	ListItemButton,
@@ -29,12 +27,13 @@ export default function MenuDrawer({
 					display: 'flex',
 					flexDirection: 'column',
 					alignItems: 'center',
+					pt: '56px',
 				}}
 				role="presentation"
 				onClick={onClose}
 				onKeyDown={onClose}
 			>
-				<Box
+				{/* <Box
 					sx={{
 						zIndex: 2000,
 						height: '56px',
@@ -64,7 +63,7 @@ export default function MenuDrawer({
 							<CloseMenu />
 						</IconButton>
 					</Box>
-				</Box>
+				</Box> */}
 				<List>
 					{links.map(({ text, href }) => (
 						<ListItem key={text} disablePadding>

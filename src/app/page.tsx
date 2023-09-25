@@ -12,10 +12,12 @@ const PLACEHOLDER_PROJECTS = [
 ];
 
 export default function Home() {
+	// const projectsRef = React.useRef(null);
 	return (
 		<Box className={styles.container}>
 			<Box className={styles.heading}>
 				<Typography
+					// id="home"
 					sx={{
 						fontSize: { sm: '4rem', xs: '2rem' },
 						fontWeight: 'bold',
@@ -28,9 +30,9 @@ export default function Home() {
 					Designing and building things for the web.
 				</Typography>
 			</Box>
-			<Box sx={{ mt: 20 }}>
+			<Box id="projects" sx={{ pt: 20 }}>
 				<Box sx={{ mb: 5, display: 'flex', justifyContent: 'center' }}>
-					<Typography variant="h4">Selected Project</Typography>
+					<Typography variant="h2">Projects</Typography>
 				</Box>
 
 				<Grid
@@ -38,7 +40,7 @@ export default function Home() {
 					// rowSpacing={3} columnSpacing={3}
 					spacing={10}
 				>
-					{PLACEHOLDER_PROJECTS.slice(0, 1).map((project) => (
+					{PLACEHOLDER_PROJECTS.slice(0, 3).map((project) => (
 						<Grid item key={project.label} xs={12} sm={12}>
 							<MediaCard
 								heading={project.label}
