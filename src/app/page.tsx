@@ -17,6 +17,7 @@ export default function Home() {
 		<Box className={styles.container}>
 			<Box className={styles.heading}>
 				<Typography
+					role="heading"
 					// id="home"
 					sx={{
 						fontSize: { sm: '4rem', xs: '2rem' },
@@ -25,7 +26,10 @@ export default function Home() {
 				>
 					Sam T Morgan
 				</Typography>
-				<Typography variant="body1">Full Stack Developer</Typography>
+
+				<Typography role="heading" variant="body1">
+					Full Stack Developer
+				</Typography>
 				<Typography variant="body1">
 					Designing and building things for the web.
 				</Typography>
