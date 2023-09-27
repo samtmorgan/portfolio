@@ -26,8 +26,14 @@ describe('Home', () => {
 		render(<ContactPage />);
 		expect(screen.getByRole('heading')).toBeInTheDocument();
 	});
-	it(`renders a heading`, () => {
+	it(`renders a form`, () => {
 		render(<ContactPage />);
 		expect(screen.getByRole('form')).toBeInTheDocument();
+	});
+	it(`renders a submit button`, () => {
+		render(<ContactPage />);
+		expect(
+			screen.getByText('Send', { selector: 'button' })
+		).toBeInTheDocument();
 	});
 });

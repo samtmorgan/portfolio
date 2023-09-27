@@ -1,12 +1,11 @@
 'use client';
 
 import * as React from 'react';
-import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import styles from '../page.module.css';
-import { Button, TextField } from '@mui/material';
-import { useForm, Controller } from 'react-hook-form';
+import { Alert, Button, Snackbar, TextField } from '@mui/material';
+import { useForm, Controller, Control } from 'react-hook-form';
 import emailjs from 'emailjs-com';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -34,37 +33,25 @@ const schema = yup
 	})
 	.required();
 
-const TextInput = ({
-	label,
-	error,
-	errorMessage,
-	...field
-}: {
-	label: string;
-	error: boolean;
-	errorMessage: string | undefined;
-	field: object;
-}) => (
-	<TextField
-		fullWidth
-		error={error}
-		helperText={errorMessage}
-		data-testid="name"
-		label={label}
-		{...field}
-	/>
-);
-
 const FormTextField = ({
 	control,
-	errors,
+	error,
+	helperText,
 	name,
 	label,
+	multiline,
 }: {
-	control: object;
-	errors: object;
-	name: string;
+	control: Control<{
+		subject?: string | undefined;
+		name: string;
+		email: string;
+		message: string;
+	}>;
+	error: boolean;
+	helperText: string | undefined;
+	name: 'name' | 'email' | 'subject' | 'message';
 	label: string;
+	multiline?: boolean;
 }) => {
 	return (
 		<Controller
@@ -72,9 +59,12 @@ const FormTextField = ({
 			control={control}
 			render={({ field }) => (
 				<TextField
+					minRows={2}
+					size="small"
+					multiline={multiline}
 					fullWidth
-					error={!!errors.name}
-					helperText={errors.name?.message}
+					error={error}
+					helperText={helperText}
 					data-testid="name"
 					label={label}
 					{...field}
@@ -94,6 +84,18 @@ export default function ContactPage() {
 		defaultValues,
 		resolver: yupResolver(schema),
 	});
+	const [open, setOpen] = React.useState(false);
+	const [submitSuccess, setSubmitSuccess] = React.useState(true);
+	const handleClose = (
+		event: React.SyntheticEvent | Event,
+		reason?: string
+	) => {
+		if (reason === 'clickaway') {
+			return;
+		}
+
+		setOpen(false);
+	};
 
 	const NEXT_PUBLIC_REACT_APP_SERVICE_ID: string =
 		process.env.NEXT_PUBLIC_REACT_APP_SERVICE_ID || '';
@@ -104,6 +106,7 @@ export default function ContactPage() {
 
 	const onSubmit = async (data: data) => {
 		const { name, email, subject, message } = data;
+		// console.log({ name, email, subject, message });
 		try {
 			const templateParams = {
 				name,
@@ -117,9 +120,13 @@ export default function ContactPage() {
 				templateParams,
 				NEXT_PUBLIC_REACT_APP_USER_ID
 			);
+			setSubmitSuccess(true);
 			reset();
 		} catch (e) {
+			setSubmitSuccess(false);
 			console.log(e);
+		} finally {
+			setOpen(true);
 		}
 	};
 
@@ -137,34 +144,83 @@ export default function ContactPage() {
 				>
 					<Box className={styles.contactFormContainer}>
 						<FormTextField
+							error={!!errors.name}
+							helperText={errors.name?.message}
 							control={control}
-							errors={errors}
 							name="name"
 							label="Name"
 						/>
 						<FormTextField
+							error={!!errors.email}
+							helperText={errors.email?.message}
 							control={control}
-							errors={errors}
 							name="email"
 							label="Email"
 						/>
 						<FormTextField
+							error={!!errors.subject}
+							helperText={errors.subject?.message}
 							control={control}
-							errors={errors}
 							name="subject"
 							label="Subject"
 						/>
 						<FormTextField
+							error={!!errors.message}
+							helperText={errors.message?.message}
 							control={control}
-							errors={errors}
 							name="message"
 							label="Message"
+							multiline
 						/>
-						<Button type="submit">Submit</Button>
+						{/* <Controller
+							name="message"
+							control={control}
+							render={({ field }) => (
+								<TextField
+									rows={4}
+									size="small"
+									multiline
+									fullWidth
+									error={!!errors.message}
+									helperText={errors.message?.message}
+									data-testid="name"
+									label="Message"
+									{...field}
+								/>
+							)}
+						/> */}
+						<Button fullWidth variant="outlined" type="submit">
+							Send
+						</Button>
 					</Box>
 				</form>
 			</Box>
+			<Snackbar
+				open={open}
+				autoHideDuration={6000}
+				onClose={handleClose}
+				anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+			>
+				<Alert
+					variant="filled"
+					elevation={6}
+					onClose={handleClose}
+					// severity={snackPayload.severity}
+					severity={submitSuccess ? 'success' : 'warn'}
+					sx={{ width: '100%' }}
+				>
+					{submitSuccess
+						? 'Message sent successfully!'
+						: 'Message failed to send!'}
+				</Alert>
+			</Snackbar>
+
+			{/* // <Snackbar
+			// 	open={open}
+			// 	autoHideDuration={6000}
+			// 	onClose={handleClose}
+			// 	message={snackPayload.message}
+			// /> */}
 		</Box>
-		// </Container>
 	);
 }

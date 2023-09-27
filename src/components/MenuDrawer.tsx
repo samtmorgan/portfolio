@@ -7,9 +7,6 @@ import {
 	ListItemButton,
 	ListItemText,
 } from '@mui/material';
-// import GitHubIcon from '@mui/icons-material/GitHub';
-// import LinkedInIcon from '@mui/icons-material/LinkedIn';
-// import MenuIcon from '@mui/icons-material/Menu';
 
 export default function MenuDrawer({
 	open,
@@ -96,7 +93,7 @@ export default function MenuDrawer({
 					// height: `calc(100% - 48px)`,
 				},
 			}}
-			anchor="right"
+			anchor="left"
 			open={open}
 			onClose={onClose}
 		>

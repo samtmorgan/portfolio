@@ -1,8 +1,10 @@
 import React from 'react';
 // import Image from 'next/image';
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Grid, Icon, Stack, SvgIcon, Typography } from '@mui/material';
 import MediaCard from '@/components/MediaCard';
 import styles from './page.module.css';
+import Image from 'next/image';
+import { NextLogo } from '@/components/Logo';
 
 const PLACEHOLDER_PROJECTS = [
 	{ label: 'Project 1', description: 'This is a description of project 1' },
@@ -28,11 +30,72 @@ export default function Home() {
 				</Typography>
 
 				<Typography role="heading" variant="body1">
-					Full Stack Developer
+					Front-end developer with full-stack experience
 				</Typography>
-				<Typography variant="body1">
-					Designing and building things for the web.
+				<Typography sx={{ maxWidth: '700px' }} variant="body1">
+					I build responsive websites and applications using modern
+					web technologies and frameworks such as React, Next.js, and
+					Material-UI.
 				</Typography>
+				<Typography sx={{ maxWidth: '700px' }} variant="body1">
+					On this site you can find some of my projects, some more
+					information about me and get in touch.
+				</Typography>
+				<Stack direction="row" spacing={2} sx={{ mt: '2rem' }}>
+					{/* <Image
+						src="/public/next.svg" // Route of the image file
+						height={144} // Desired size with correct aspect ratio
+						width={144} // Desired size with correct aspect ratio
+						alt="Your Name"
+                    /> */}
+					{/* <Box sx={{ width: '100px', height: '100px' }}>
+						<Image
+							alt="next-js_icon"
+							src="/next.svg"
+							// layout="fill"
+							// layout=''
+							width={100}
+							height={50}
+                        /> 
+					</Box>*/}
+					{/* <SvgIcon>
+						<NextLogo />
+					</SvgIcon> */}
+					<Image
+						alt="react_logo"
+						src="/logo512.png"
+						// layout="fill"
+						// layout=''
+						width={70}
+						height={70}
+					/>
+					<Image
+						alt="next-js_icon"
+						src="/next.svg"
+						// layout="fill"
+						// layout=''
+						width={100}
+						height={70}
+					/>
+					<Image
+						alt="type-script_icon"
+						src="/typescript.svg"
+						// layout="fill"
+						// layout=''
+						width={100}
+						height={70}
+					/>
+					<Image
+						alt="type-script_icon"
+						src="/materialui.svg"
+						// layout="fill"
+						// layout=''
+						width={100}
+						height={70}
+					/>
+
+					{/* <NextLogo /> */}
+				</Stack>
 			</Box>
 			<Box id="projects" sx={{ pt: 20 }}>
 				<Box sx={{ mb: 5, display: 'flex', justifyContent: 'center' }}>
