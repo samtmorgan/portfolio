@@ -9,6 +9,9 @@ import { useForm, Controller, Control } from 'react-hook-form';
 import emailjs from 'emailjs-com';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import Link from 'next/link';
+import { CopyToClipboardButton } from '@/components/CopyToClipboardButton';
+import { Send } from '@mui/icons-material';
 
 interface data {
 	name: string;
@@ -189,11 +192,33 @@ export default function ContactPage() {
 								/>
 							)}
 						/> */}
-						<Button fullWidth variant="outlined" type="submit">
+						{/* <input type="text" name="contact_number" />
+						<label>Message</label>
+						<textarea
+							id="w3review"
+							name="w3review"
+							rows={4}
+							// cols={50}
+						/> */}
+						<Button
+							startIcon={<Send />}
+							fullWidth
+							variant="outlined"
+							type="submit"
+						>
 							Send
 						</Button>
 					</Box>
 				</form>
+				<Box sx={{ width: '100%' }}>
+					<Typography role="heading" variant="body1" gutterBottom>
+						Or send me an email
+					</Typography>
+					<CopyToClipboardButton
+						resourceName="Email"
+						resourceValue="samtmorgan01@gmail.com"
+					/>
+				</Box>
 			</Box>
 			<Snackbar
 				open={open}
@@ -214,13 +239,6 @@ export default function ContactPage() {
 						: 'Message failed to send!'}
 				</Alert>
 			</Snackbar>
-
-			{/* // <Snackbar
-			// 	open={open}
-			// 	autoHideDuration={6000}
-			// 	onClose={handleClose}
-			// 	message={snackPayload.message}
-			// /> */}
 		</Box>
 	);
 }
