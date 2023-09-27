@@ -17,6 +17,7 @@ export default function Home() {
 		<Box className={styles.container}>
 			<Box className={styles.heading}>
 				<Typography
+					role="heading"
 					// id="home"
 					sx={{
 						fontSize: { sm: '4rem', xs: '2rem' },
@@ -25,10 +26,21 @@ export default function Home() {
 				>
 					Sam T Morgan
 				</Typography>
-				<Typography variant="body1">Full Stack Developer</Typography>
-				<Typography variant="body1">
-					Designing and building things for the web.
+
+				<Typography role="heading" variant="body1">
+					Front-end developer with full-stack experience
 				</Typography>
+				<Typography sx={{ maxWidth: '700px' }} variant="body1">
+					I build responsive websites and applications using modern
+					web technologies and frameworks such as React, Next.js, and
+					Material-UI.
+				</Typography>
+				<Typography sx={{ maxWidth: '700px' }} variant="body1">
+					On this site you can find some of my projects, some more
+					information about me and get in touch.
+				</Typography>
+				{/* Dan is a fullstack software engineer with a primary focus on frontend development and experience building high-visibility, scalable, and accessible web applications. */}
+				{/* <TechStackLogos /> */}
 			</Box>
 			<Box id="projects" sx={{ pt: 20 }}>
 				<Box sx={{ mb: 5, display: 'flex', justifyContent: 'center' }}>

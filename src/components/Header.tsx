@@ -8,8 +8,9 @@ import { Button, IconButton } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import MenuIcon from '@mui/icons-material/Menu';
-import { useElementSize } from 'usehooks-ts';
+// import { useElementSize } from 'usehooks-ts';
 import MenuDrawer from './MenuDrawer';
+import CloseMenu from '@mui/icons-material/Close';
 
 const ICON_LINKS = [
 	{
@@ -32,7 +33,7 @@ const LINKS = [
 ];
 
 export function Header() {
-	const [headerRef, { width, height }] = useElementSize();
+	// const [headerRef, { width, height }] = useElementSize();
 
 	const [drawerOpen, setDrawerOpen] = React.useState(false);
 
@@ -49,9 +50,9 @@ export function Header() {
 	// 		setDrawerOpen(false);
 	// 	};
 
-	React.useEffect(() => {
-		console.log({ width, height });
-	}, [width, height]);
+	// React.useEffect(() => {
+	// 	console.log({ width, height });
+	// }, [width, height]);
 
 	// const d = 'M 10,10 L 20,20 L 40,0 L 60,20 L 80,0 L 90, 10';
 
@@ -134,7 +135,7 @@ export function Header() {
 	return (
 		<>
 			<Box
-				ref={headerRef}
+				// ref={headerRef}
 				sx={{
 					position: 'fixed',
 					top: 0,
@@ -144,7 +145,8 @@ export function Header() {
 					padding: '0.5rem',
 					width: '100%',
 					backgroundColor: 'background.paper',
-					flexDirection: 'row-reverse',
+					flexDirection: 'row',
+					justifyContent: { xs: 'space-between', sm: 'flex-end' },
 					paddingLeft: { sm: '12rem' },
 					paddingRight: { sm: '12rem' },
 				}}
@@ -172,33 +174,7 @@ export function Header() {
 						sx={{ mr: '0.2rem' }}
 						onClick={() => setDrawerOpen(!drawerOpen)}
 					>
-						<MenuIcon
-							sx={{
-								transform: !drawerOpen
-									? 'rotate( -180deg )'
-									: '',
-								transition: 'transform 200ms ease',
-							}}
-						/>
-						{/* {drawerOpen ? (
-							<CloseMenu
-								sx={{
-									transform: drawerOpen
-										? 'rotate( -180deg )'
-										: '',
-									transition: 'transform 2200ms ease',
-								}}
-							/>
-						) : (
-							<MenuIcon
-								sx={{
-									transform: !drawerOpen
-										? 'rotate( -180deg )'
-										: '',
-									transition: 'transform 2200ms ease',
-								}}
-							/>
-						)} */}
+						{drawerOpen ? <CloseMenu /> : <MenuIcon />}
 					</IconButton>
 				</Box>
 
@@ -212,19 +188,20 @@ export function Header() {
 					}}
 				>
 					{LINKS.map(({ text, href }) => (
-						<Button
-							key={text}
-							// sx={{ color: '#fff' }}
-							component={Link}
-							href={href}
-						>
+						<Button key={text} component={Link} href={href}>
 							{text}
 						</Button>
 					))}
+				</Box>
+				<Box
+					sx={{
+						display: 'flex',
+						gap: '0.5rem',
+					}}
+				>
 					{ICON_LINKS.map((item, index) => (
 						<IconButton
 							key={`${item.label}-${index}}`}
-							// size="large"
 							edge="start"
 							color="primary"
 							aria-label={item.label}

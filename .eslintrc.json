@@ -8,5 +8,9 @@
 	],
 	"parserOptions": {
 		"parser": "@typescript-eslint/parser"
+	},
+	"plugins": ["jest"],
+	"env": {
+		"jest/globals": true
 	}
 }
