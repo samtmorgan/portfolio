@@ -206,7 +206,7 @@ export default function ContactPage() {
 						Or send me an email
 					</Typography>
 					<CopyToClipboardButton
-						resourceName="Email"
+						resourceName="Email address"
 						resourceValue="samtmorgan01@gmail.com"
 					/>
 				</Box>
