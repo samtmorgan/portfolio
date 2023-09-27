@@ -1,11 +1,8 @@
 import React from 'react';
 // import Image from 'next/image';
-import { Box, Grid, Icon, Stack, SvgIcon, Typography } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import MediaCard from '@/components/MediaCard';
 import styles from './page.module.css';
-import Image from 'next/image';
-import { TechStackLogos } from '@/components/TechStackLogos';
-// import { NextLogo } from '@/components/Logo';
 
 const PLACEHOLDER_PROJECTS = [
 	{ label: 'Project 1', description: 'This is a description of project 1' },

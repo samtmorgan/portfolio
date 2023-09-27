@@ -9,7 +9,6 @@ import { useForm, Controller, Control } from 'react-hook-form';
 import emailjs from 'emailjs-com';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import Link from 'next/link';
 import { CopyToClipboardButton } from '@/components/CopyToClipboardButton';
 import { Send } from '@mui/icons-material';
 
