@@ -4,8 +4,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, Link } from '@mui/material';
-import styles from './style/MediaCard.module.css';
-// import Link from 'next/link';
+import styles from './style/mediaCard.module.css';
 
 export default function MediaCard({
 	heading,
