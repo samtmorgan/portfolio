@@ -12,17 +12,19 @@ import * as yup from 'yup';
 import { CopyToClipboardButton } from '@/components/CopyToClipboardButton';
 import { Send } from '@mui/icons-material';
 
+const NEXT_PUBLIC_REACT_APP_SERVICE_ID = 'service_clznlur';
+const NEXT_PUBLIC_REACT_APP_TEMPLATE_ID = 'contact_form';
+const NEXT_PUBLIC_REACT_APP_USER_ID = 'KUcNfjVsQi3cwWtqZ';
+
 interface data {
 	name: string;
 	email: string;
-	// subject: string;
 	message: string;
 }
 
 const defaultValues = {
 	name: '',
 	email: '',
-	// subject: '',
 	message: '',
 };
 
@@ -30,7 +32,6 @@ const schema = yup
 	.object({
 		name: yup.string().max(50).required(),
 		email: yup.string().email().required(),
-		// subject: yup.string().max(100),
 		message: yup.string().max(500).required(),
 	})
 	.required();
@@ -44,7 +45,6 @@ const FormTextField = ({
 	multiline,
 }: {
 	control: Control<{
-		// subject?: string;
 		name: string;
 		email: string;
 		message: string;
@@ -99,12 +99,12 @@ export default function ContactPage() {
 		setOpen(false);
 	};
 
-	const NEXT_PUBLIC_REACT_APP_SERVICE_ID: string =
-		process.env.NEXT_PUBLIC_REACT_APP_SERVICE_ID || '';
-	const NEXT_PUBLIC_REACT_APP_TEMPLATE_ID: string =
-		process.env.NEXT_PUBLIC_REACT_APP_TEMPLATE_ID || '';
-	const NEXT_PUBLIC_REACT_APP_USER_ID: string =
-		process.env.NEXT_PUBLIC_REACT_APP_USER_ID || '';
+	// const NEXT_PUBLIC_REACT_APP_SERVICE_ID: string =
+	// 	process.env.NEXT_PUBLIC_REACT_APP_SERVICE_ID || '';
+	// const NEXT_PUBLIC_REACT_APP_TEMPLATE_ID: string =
+	// 	process.env.NEXT_PUBLIC_REACT_APP_TEMPLATE_ID || '';
+	// const NEXT_PUBLIC_REACT_APP_USER_ID: string =
+	// 	process.env.NEXT_PUBLIC_REACT_APP_USER_ID || '';
 
 	const onSubmit = async (data: data) => {
 		const { name, email, message } = data;
@@ -158,13 +158,6 @@ export default function ContactPage() {
 							name="email"
 							label="Email"
 						/>
-						{/* <FormTextField
-							error={!!errors.subject}
-							helperText={errors.subject?.message}
-							control={control}
-							name="subject"
-							label="Subject"
-						/> */}
 						<FormTextField
 							error={!!errors.message}
 							helperText={errors.message?.message || ''}
@@ -228,7 +221,6 @@ export default function ContactPage() {
 					variant="filled"
 					elevation={6}
 					onClose={handleClose}
-					// severity={snackPayload.severity}
 					severity={submitSuccess ? 'success' : 'warning'}
 					sx={{ width: '100%' }}
 				>
