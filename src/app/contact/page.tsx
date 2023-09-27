@@ -15,14 +15,14 @@ import { Send } from '@mui/icons-material';
 interface data {
 	name: string;
 	email: string;
-	subject: string;
+	// subject: string;
 	message: string;
 }
 
 const defaultValues = {
 	name: '',
 	email: '',
-	subject: '',
+	// subject: '',
 	message: '',
 };
 
@@ -30,7 +30,7 @@ const schema = yup
 	.object({
 		name: yup.string().max(50).required(),
 		email: yup.string().email().required(),
-		subject: yup.string().max(100),
+		// subject: yup.string().max(100),
 		message: yup.string().max(500).required(),
 	})
 	.required();
@@ -44,14 +44,14 @@ const FormTextField = ({
 	multiline,
 }: {
 	control: Control<{
-		subject?: string | undefined;
+		// subject?: string;
 		name: string;
 		email: string;
 		message: string;
 	}>;
 	error: boolean;
-	helperText: string | undefined;
-	name: 'name' | 'email' | 'subject' | 'message';
+	helperText: string;
+	name: 'name' | 'email' | 'message';
 	label: string;
 	multiline?: boolean;
 }) => {
@@ -107,13 +107,12 @@ export default function ContactPage() {
 		process.env.NEXT_PUBLIC_REACT_APP_USER_ID || '';
 
 	const onSubmit = async (data: data) => {
-		const { name, email, subject, message } = data;
+		const { name, email, message } = data;
 		// console.log({ name, email, subject, message });
 		try {
 			const templateParams = {
 				name,
 				email,
-				subject,
 				message,
 			};
 			await emailjs.send(
@@ -147,28 +146,28 @@ export default function ContactPage() {
 					<Box className={styles.contactFormContainer}>
 						<FormTextField
 							error={!!errors.name}
-							helperText={errors.name?.message}
+							helperText={errors.name?.message || ''}
 							control={control}
 							name="name"
 							label="Name"
 						/>
 						<FormTextField
 							error={!!errors.email}
-							helperText={errors.email?.message}
+							helperText={errors.email?.message || ''}
 							control={control}
 							name="email"
 							label="Email"
 						/>
-						<FormTextField
+						{/* <FormTextField
 							error={!!errors.subject}
 							helperText={errors.subject?.message}
 							control={control}
 							name="subject"
 							label="Subject"
-						/>
+						/> */}
 						<FormTextField
 							error={!!errors.message}
-							helperText={errors.message?.message}
+							helperText={errors.message?.message || ''}
 							control={control}
 							name="message"
 							label="Message"
@@ -230,7 +229,7 @@ export default function ContactPage() {
 					elevation={6}
 					onClose={handleClose}
 					// severity={snackPayload.severity}
-					severity={submitSuccess ? 'success' : 'warn'}
+					severity={submitSuccess ? 'success' : 'warning'}
 					sx={{ width: '100%' }}
 				>
 					{submitSuccess
