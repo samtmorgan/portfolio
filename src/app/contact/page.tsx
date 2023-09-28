@@ -84,6 +84,7 @@ export default function ContactPage() {
 	});
 	const [open, setOpen] = React.useState(false);
 	const [submitSuccess, setSubmitSuccess] = React.useState(true);
+
 	const handleClose = (
 		event: React.SyntheticEvent | Event,
 		reason?: string
@@ -91,41 +92,41 @@ export default function ContactPage() {
 		if (reason === 'clickaway') {
 			return;
 		}
-
 		setOpen(false);
 	};
 
-	const NEXT_PUBLIC_REACT_APP_SERVICE_ID: string =
-		process.env.NEXT_PUBLIC_REACT_APP_SERVICE_ID || '';
-	const NEXT_PUBLIC_REACT_APP_TEMPLATE_ID: string =
-		process.env.NEXT_PUBLIC_REACT_APP_TEMPLATE_ID || '';
-	const NEXT_PUBLIC_REACT_APP_USER_ID: string =
-		process.env.NEXT_PUBLIC_REACT_APP_USER_ID || '';
-
-	const onSubmit = async (data: data) => {
-		const { name, email, message } = data;
-		// console.log({ name, email, subject, message });
-		try {
-			const templateParams = {
-				name,
-				email,
-				message,
-			};
-			await emailjs.send(
-				NEXT_PUBLIC_REACT_APP_SERVICE_ID,
-				NEXT_PUBLIC_REACT_APP_TEMPLATE_ID,
-				templateParams,
-				NEXT_PUBLIC_REACT_APP_USER_ID
-			);
-			setSubmitSuccess(true);
-			reset();
-		} catch (e) {
-			setSubmitSuccess(false);
-			console.log(e);
-		} finally {
-			setOpen(true);
-		}
-	};
+	const onSubmit = React.useCallback(
+		async (data: data) => {
+			const NEXT_PUBLIC_REACT_APP_SERVICE_ID: string =
+				process.env.NEXT_PUBLIC_REACT_APP_SERVICE_ID || '';
+			const NEXT_PUBLIC_REACT_APP_TEMPLATE_ID: string =
+				process.env.NEXT_PUBLIC_REACT_APP_TEMPLATE_ID || '';
+			const NEXT_PUBLIC_REACT_APP_USER_ID: string =
+				process.env.NEXT_PUBLIC_REACT_APP_USER_ID || '';
+			const { name, email, message } = data;
+			try {
+				const templateParams = {
+					name,
+					email,
+					message,
+				};
+				await emailjs.send(
+					NEXT_PUBLIC_REACT_APP_SERVICE_ID,
+					NEXT_PUBLIC_REACT_APP_TEMPLATE_ID,
+					templateParams,
+					NEXT_PUBLIC_REACT_APP_USER_ID
+				);
+				setSubmitSuccess(true);
+				reset();
+			} catch (e) {
+				setSubmitSuccess(false);
+				console.log(e);
+			} finally {
+				setOpen(true);
+			}
+		},
+		[reset]
+	);
 
 	return (
 		<Box className={styles.pageContainer}>
