@@ -12,10 +12,6 @@ import * as yup from 'yup';
 import { CopyToClipboardButton } from '@/components/CopyToClipboardButton';
 import { Send } from '@mui/icons-material';
 
-const NEXT_PUBLIC_REACT_APP_SERVICE_ID = 'service_clznlur';
-const NEXT_PUBLIC_REACT_APP_TEMPLATE_ID = 'contact_form';
-const NEXT_PUBLIC_REACT_APP_USER_ID = 'KUcNfjVsQi3cwWtqZ';
-
 interface data {
 	name: string;
 	email: string;
@@ -99,12 +95,12 @@ export default function ContactPage() {
 		setOpen(false);
 	};
 
-	// const NEXT_PUBLIC_REACT_APP_SERVICE_ID: string =
-	// 	process.env.NEXT_PUBLIC_REACT_APP_SERVICE_ID || '';
-	// const NEXT_PUBLIC_REACT_APP_TEMPLATE_ID: string =
-	// 	process.env.NEXT_PUBLIC_REACT_APP_TEMPLATE_ID || '';
-	// const NEXT_PUBLIC_REACT_APP_USER_ID: string =
-	// 	process.env.NEXT_PUBLIC_REACT_APP_USER_ID || '';
+	const NEXT_PUBLIC_REACT_APP_SERVICE_ID: string =
+		process.env.NEXT_PUBLIC_REACT_APP_SERVICE_ID || '';
+	const NEXT_PUBLIC_REACT_APP_TEMPLATE_ID: string =
+		process.env.NEXT_PUBLIC_REACT_APP_TEMPLATE_ID || '';
+	const NEXT_PUBLIC_REACT_APP_USER_ID: string =
+		process.env.NEXT_PUBLIC_REACT_APP_USER_ID || '';
 
 	const onSubmit = async (data: data) => {
 		const { name, email, message } = data;
@@ -206,7 +202,7 @@ export default function ContactPage() {
 						Or send me an email
 					</Typography>
 					<CopyToClipboardButton
-						resourceName="Email"
+						resourceName="Email address"
 						resourceValue="samtmorgan01@gmail.com"
 					/>
 				</Box>

@@ -3,11 +3,32 @@ import React from 'react';
 import { Box, Grid, Typography } from '@mui/material';
 import MediaCard from '@/components/MediaCard';
 import styles from './page.module.css';
+import thisSite from '../../public/this_site.jpg';
+import recharts from '../../public/recharts.jpg';
+import star_wars from '../../public/star_wars.jpg';
 
 const PLACEHOLDER_PROJECTS = [
-	{ label: 'Project 1', description: 'This is a description of project 1' },
-	{ label: 'Project 2', description: 'This is a description of project 2' },
-	{ label: 'Project 3', description: 'This is a description of project 3' },
+	{
+		label: 'My personal site',
+		description:
+			'This is my personal site built with Next.js and MUI using TypeScript, deployed on Vercel.',
+		image: thisSite,
+		href: 'https://portfolio-five-lemon-11.vercel.app/',
+	},
+	{
+		label: 'Recharts library',
+		description: `Recharts is a composable open source charting library, I have used the library extensively 
+            in my professional work and have previously made a modest contribution to the project storybook.`,
+		image: recharts,
+		href: 'https://recharts.org/en-US/storybook',
+	},
+	{
+		label: 'Star Wars quotes',
+		description:
+			'Made in a galaxy far far away as a Free Code Camp project. Built with React and React-Bootstrap, deployed on GitHub Pages.',
+		image: star_wars,
+		href: 'https://samtmorgan.github.io/random-star-wars-quotes/',
+	},
 	{ label: 'Project 4', description: 'This is a description of project 4' },
 ];
 
@@ -42,7 +63,7 @@ export default function Home() {
 				{/* Dan is a fullstack software engineer with a primary focus on frontend development and experience building high-visibility, scalable, and accessible web applications. */}
 				{/* <TechStackLogos /> */}
 			</Box>
-			<Box id="projects" sx={{ pt: 20 }}>
+			<Box id="projects" sx={{ pt: 20, mb: '4rem' }}>
 				<Box sx={{ mb: 5, display: 'flex', justifyContent: 'center' }}>
 					<Typography variant="h2">Projects</Typography>
 				</Box>
@@ -57,6 +78,8 @@ export default function Home() {
 							<MediaCard
 								heading={project.label}
 								text={project.description}
+								image={project.image}
+								href={project.href}
 							/>
 						</Grid>
 					))}
