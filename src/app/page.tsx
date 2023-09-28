@@ -1,8 +1,6 @@
 import React from 'react';
-// import Image from 'next/image';
 import { Box, Grid, Typography } from '@mui/material';
 import MediaCard from '@/components/MediaCard';
-import styles from './page.module.css';
 import thisSite from '../../public/this_site.jpg';
 import recharts from '../../public/recharts.jpg';
 import star_wars from '../../public/star_wars.jpg';
@@ -46,7 +44,7 @@ const PLACEHOLDER_PROJECTS = [
 
 const title = 'Sam T Morgan';
 const paragraphs = [
-	'Front-end developer with full-stack experience',
+	'Fullstack software engineer with a primary focus on frontend development',
 	'I build responsive websites and applications using modern web technologies and frameworks such as React, Next.js, and Material-UI.',
 	'On this site you can find some of my projects, some more information about me and get in touch.',
 ];
@@ -56,9 +54,16 @@ export default function Home() {
 		<PageBox>
 			<PageText title={title} paragraphs={paragraphs} />
 			<Box id="projects" sx={{ pt: 20, mb: '4rem' }}>
-				<Box sx={{ mb: 5, display: 'flex', justifyContent: 'center' }}>
-					<Typography variant="h2">Projects</Typography>
-				</Box>
+				<Typography
+					sx={{
+						fontSize: { sm: '4rem', xs: '2rem' },
+						fontWeight: 'bold',
+					}}
+					gutterBottom
+					variant="h2"
+				>
+					Projects
+				</Typography>
 
 				<Grid
 					container
