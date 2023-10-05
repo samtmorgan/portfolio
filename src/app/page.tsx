@@ -54,7 +54,7 @@ const title = 'Sam T Morgan';
 const paragraphs = [
 	'Fullstack software engineer with a primary focus on frontend development',
 	'I build responsive websites and applications using modern web technologies and frameworks such as React, Next.js, and Material-UI.',
-	'On this site you can find some of my projects, some more information about me and get in touch.',
+	'On this site you can find some of my projects, find out about about me and get in touch.',
 ];
 
 export default function Home() {
