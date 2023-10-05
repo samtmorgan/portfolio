@@ -5,10 +5,18 @@ import thisSite from '../../public/this_site.jpg';
 import recharts from '../../public/recharts.jpg';
 import star_wars from '../../public/star_wars.jpg';
 import brunswick from '../../public/brunswick.jpg';
+import superPotato from '../../public/superPotato.jpg';
 import { PageText } from '@/components/PageText';
 import { PageBox } from '@/components/PageBox';
 
 const PLACEHOLDER_PROJECTS = [
+	{
+		label: 'Super Potato',
+		description:
+			'A simple weather app, this is still in development, built with Next.js and TypeScript, styled with Tailwind.',
+		image: superPotato,
+		href: 'https://super-potato-samtmorgan.vercel.app/',
+	},
 	{
 		label: 'My personal site',
 		description:
