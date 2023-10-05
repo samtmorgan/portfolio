@@ -2,6 +2,7 @@ import * as React from 'react';
 import ThemeRegistry from '@/components/ThemeRegistry/ThemeRegistry';
 import { Header } from '@/components/Header';
 import { Box } from '@mui/material';
+import { Footer } from '@/components/Footer';
 
 const metadata = {
 	title: 'Sam T Morgan Portfolio',
@@ -34,11 +35,6 @@ export default function RootLayout({
 		<html lang="en">
 			<head>
 				<title>{metadata.title}</title>
-				<meta
-					key="desc"
-					name="description"
-					content={metadata.description}
-				/>
 			</head>
 			<body style={{ padding: '0px !important' }}>
 				<ThemeRegistry>
@@ -60,6 +56,7 @@ export default function RootLayout({
 					>
 						{children}
 					</Box>
+					<Footer />
 				</ThemeRegistry>
 			</body>
 		</html>
