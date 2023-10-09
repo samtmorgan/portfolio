@@ -4,7 +4,7 @@ import { PageText } from '@/components/PageText';
 import { Metadata } from 'next';
 import { titles } from '@/static/copy';
 
-// this is next's answer to managing content with the 'app router'
+// this is managing meta content with the 'app router'
 export const metadata: Metadata = {
 	title: titles.about,
 };

@@ -9,7 +9,6 @@ import superPotato from '../../public/superPotato.jpg';
 import { PageText } from '@/components/PageText';
 import { PageBox } from '@/components/PageBox';
 import { ProjectType } from '@/types/types';
-import Head from 'next/head';
 import { titles } from '@/static/copy';
 import { Metadata } from 'next';
 
@@ -61,7 +60,7 @@ const paragraphs = [
 	'On this site you can find some of my projects, find out about about me and get in touch.',
 ];
 
-// this is next's answer to managing content with the 'app router'
+// this is managing meta content with the 'app router'
 export const metadata: Metadata = {
 	title: titles.home,
 };
