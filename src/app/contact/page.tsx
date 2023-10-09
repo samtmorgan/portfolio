@@ -5,9 +5,9 @@ import { titles } from '@/static/copy';
 
 // this is managing meta content with the 'app router'
 export const metadata: Metadata = {
-	title: titles.contact,
+  title: titles.contact,
 };
 
 export default function ContactPage() {
-	return <ContactFrom />;
+  return <ContactFrom />;
 }
