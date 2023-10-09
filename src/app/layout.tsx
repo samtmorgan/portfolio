@@ -3,14 +3,15 @@ import ThemeRegistry from '@/components/ThemeRegistry/ThemeRegistry';
 import { Header } from '@/components/Header';
 import { Box } from '@mui/material';
 import { Footer } from '@/components/Footer';
-
-const metadata = {
-	title: 'Sam T Morgan Portfolio',
-	description:
-		'Sam T Morgan, Full Stack Developer, Portfolio, Front End Developer, React, Next',
-};
+import { metaDescription, metaKeywords, titles } from '@/static/copy';
+import { Metadata } from 'next';
 
 // const DRAWER_WIDTH = 240;
+export const metadata: Metadata = {
+	title: titles.root,
+	description: metaDescription,
+	keywords: metaKeywords,
+};
 
 export default function RootLayout({
 	children,
@@ -34,10 +35,18 @@ export default function RootLayout({
 
 	return (
 		<html lang="en">
-			<head>
-				<title>{metadata.title}</title>
-				<meta name="description" content={metadata.description}></meta>
+			{/*<head>
+				<title>{titles.root}</title>
+			<meta property="title" content={titles.root} key="title" />
+				<meta name="description" content={metaDescription} />
+				<meta name="keywords" content={metaKeywords} />
 			</head>
+			 <Head>
+				<title>hello</title>
+				<meta property="og:title" content={titles.root} key="title" />
+				<meta name="description" content={metaDescription} />
+				<meta name="keywords" content={metaKeywords} />
+			</Head> */}
 			<body style={{ padding: '0px !important' }}>
 				<ThemeRegistry>
 					<Header />

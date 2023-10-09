@@ -1,31 +1,22 @@
 import * as React from 'react';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, Link } from '@mui/material';
 import styles from './style/mediaCard.module.css';
+import { ProjectType } from '@/types/types';
 
-export default function MediaCard({
-	heading,
-	text,
-	image,
-	href,
-}: {
-	heading: string;
-	text: string;
-	image: string | StaticImageData;
-	href: string;
-}) {
+export default function MediaCard({ project }: { project: ProjectType }) {
 	return (
 		<Card sx={{ borderRadius: 0 }}>
-			<Link underline="none" href={href || ''} target="blank">
+			<Link underline="none" href={project.href || ''} target="blank">
 				<CardActionArea>
 					<Image
 						className={styles.mediaCardImage}
-						alt={heading}
-						src={image}
-						priority={heading === 'Super Potato'}
+						alt={project.heading}
+						src={project.image}
+						priority={project.heading === 'Super Potato'}
 						// width={640}
 						// height={480}
 						// fill
@@ -37,10 +28,10 @@ export default function MediaCard({
 					/>
 					<CardContent>
 						<Typography gutterBottom variant="h5" component="div">
-							{heading}
+							{project.heading}
 						</Typography>
 						<Typography variant="body2" color="text.secondary">
-							{text}
+							{project.description}
 						</Typography>
 					</CardContent>
 					{/* <CardActions>
