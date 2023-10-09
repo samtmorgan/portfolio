@@ -14,43 +14,27 @@ export default function MediaCard({
 }: {
 	heading: string;
 	text: string;
-	image?: string | StaticImageData | undefined;
-	href?: string | undefined;
+	image: string | StaticImageData;
+	href: string;
 }) {
 	return (
 		<Card sx={{ borderRadius: 0 }}>
 			<Link underline="none" href={href || ''} target="blank">
 				<CardActionArea>
-					{image ? (
-						<Image
-							className={styles.mediaCardImage}
-							alt={heading}
-							src={image}
-							// width={640}
-							// height={480}
-							// fill
-							style={{
-								// width: '100%',
-								// height: '500px',
-								objectFit: 'contain',
-							}}
-						/>
-					) : (
-						<Image
-							className={styles.mediaCardImage}
-							alt="Random image"
-							src={'https://source.unsplash.com/random'}
-							width={640}
-							height={480}
-							// fill
-							style={{
-								// width: '100%',
-								// height: '200px',
-								objectFit: 'cover',
-							}}
-						/>
-					)}
-
+					<Image
+						className={styles.mediaCardImage}
+						alt={heading}
+						src={image}
+						priority={heading === 'Super Potato'}
+						// width={640}
+						// height={480}
+						// fill
+						style={{
+							// width: '100%',
+							// height: '500px',
+							objectFit: 'contain',
+						}}
+					/>
 					<CardContent>
 						<Typography gutterBottom variant="h5" component="div">
 							{heading}

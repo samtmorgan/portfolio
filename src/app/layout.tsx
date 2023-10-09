@@ -6,7 +6,8 @@ import { Footer } from '@/components/Footer';
 
 const metadata = {
 	title: 'Sam T Morgan Portfolio',
-	description: 'Sam T Morgan Full Stack Developer Portfolio',
+	description:
+		'Sam T Morgan, Full Stack Developer, Portfolio, Front End Developer, React, Next',
 };
 
 // const DRAWER_WIDTH = 240;
@@ -35,6 +36,7 @@ export default function RootLayout({
 		<html lang="en">
 			<head>
 				<title>{metadata.title}</title>
+				<meta name="description" content={metadata.description}></meta>
 			</head>
 			<body style={{ padding: '0px !important' }}>
 				<ThemeRegistry>
