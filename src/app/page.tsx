@@ -13,7 +13,7 @@ const PLACEHOLDER_PROJECTS = [
 	{
 		label: 'Super Potato',
 		description:
-			'A simple weather app, this is still in development, built with Next.js and TypeScript, styled with Tailwind.',
+			'A very simple weather app, primarily used as a platform to explore different tooling, there are more features to add to this project which built with Next.js and TypeScript, styled with Tailwind.',
 		image: superPotato,
 		href: 'https://super-potato-samtmorgan.vercel.app/',
 	},
@@ -52,7 +52,7 @@ const PLACEHOLDER_PROJECTS = [
 
 const title = 'Sam T Morgan';
 const paragraphs = [
-	'Fullstack software engineer with a primary focus on frontend development',
+	'Fullstack software engineer with a primary focus on Frontend development',
 	'I build responsive websites and applications using modern web technologies and frameworks such as React, Next.js, and Material-UI.',
 	'On this site you can find some of my projects, find out about about me and get in touch.',
 ];
