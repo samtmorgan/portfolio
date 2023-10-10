@@ -1,5 +1,5 @@
 # This is my personal web site
-- [sam t morgan]: https://samtmorgan.com
+- [Can be found here] (https://www.samtmorgan.com)
 
 ## 🛠️ Built with
 
