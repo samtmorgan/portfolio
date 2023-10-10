@@ -1,36 +1,21 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import {
-	Drawer,
-	List,
-	ListItem,
-	ListItemButton,
-	ListItemText,
-} from '@mui/material';
+import { Drawer, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
 
-export default function MenuDrawer({
-	open,
-	onClose,
-	links,
-}: {
-	open: boolean;
-	onClose: () => void;
-	links: { text: string; href: string }[];
-}) {
-	function MenuList() {
-		return (
-			<Box
-				sx={{
-					display: 'flex',
-					flexDirection: 'column',
-					alignItems: 'center',
-					pt: '56px',
-				}}
-				role="presentation"
-				onClick={onClose}
-				onKeyDown={onClose}
-			>
-				{/* <Box
+function MenuList({ onClose, links }: { onClose: () => void; links: { text: string; href: string }[] }) {
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        pt: '56px',
+      }}
+      role="presentation"
+      onClick={onClose}
+      onKeyDown={onClose}
+    >
+      {/* <Box
 					sx={{
 						zIndex: 2000,
 						height: '56px',
@@ -61,43 +46,45 @@ export default function MenuDrawer({
 						</IconButton>
 					</Box>
 				</Box> */}
-				<List>
-					{links.map(({ text, href }) => (
-						<ListItem key={text} disablePadding>
-							<ListItemButton
-								component="a"
-								href={href}
-								onClick={onClose}
-							>
-								<ListItemText
-									primary={text}
-									primaryTypographyProps={{ align: 'center' }}
-								/>
-							</ListItemButton>
-						</ListItem>
-					))}
-				</List>
-			</Box>
-		);
-	}
+      <List>
+        {links.map(({ text, href }) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton component="a" href={href} onClick={onClose}>
+              <ListItemText primary={text} primaryTypographyProps={{ align: 'center' }} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+}
 
-	return (
-		<Drawer
-			sx={{
-				// minWidth: '400px',
-				display: { xs: 'block', sm: 'none' },
-			}}
-			PaperProps={{
-				sx: {
-					width: '100%',
-					// height: `calc(100% - 48px)`,
-				},
-			}}
-			anchor="left"
-			open={open}
-			onClose={onClose}
-		>
-			<MenuList />
-		</Drawer>
-	);
+export default function MenuDrawer({
+  open,
+  onClose,
+  links,
+}: {
+  open: boolean;
+  onClose: () => void;
+  links: { text: string; href: string }[];
+}) {
+  return (
+    <Drawer
+      sx={{
+        // minWidth: '400px',
+        display: { xs: 'block', sm: 'none' },
+      }}
+      PaperProps={{
+        sx: {
+          width: '100%',
+          // height: `calc(100% - 48px)`,
+        },
+      }}
+      anchor="left"
+      open={open}
+      onClose={onClose}
+    >
+      <MenuList onClose={onClose} links={links} />
+    </Drawer>
+  );
 }
