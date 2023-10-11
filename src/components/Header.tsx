@@ -2,13 +2,13 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import Box from '@mui/material/Box';
 import { Button, IconButton } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseMenu from '@mui/icons-material/Close';
 import MenuDrawer from './MenuDrawer';
+import styles from './style/header.module.css';
 
 const ICON_LINKS = [
   {
@@ -35,68 +35,27 @@ export function Header() {
 
   return (
     <>
-      <Box
-        sx={{
-          position: 'fixed',
-          top: 0,
-          zIndex: 2000,
-          height: '56px',
-          display: 'flex',
-          padding: '0.5rem',
-          width: '100%',
-          backgroundColor: 'background.paper',
-          flexDirection: 'row',
-          justifyContent: { xs: 'space-between', sm: 'flex-end' },
-          paddingLeft: { sm: '12rem' },
-          paddingRight: { sm: '12rem' },
-        }}
-      >
-        <Box
-          sx={{
-            display: {
-              xs: 'flex',
-              sm: 'none',
-            },
-          }}
-        >
-          <IconButton
-            color="primary"
-            aria-label="menu"
-            sx={{ mr: '0.2rem' }}
-            onClick={() => setDrawerOpen(!drawerOpen)}
-          >
+      <header className={styles.header}>
+        <div className={styles.menuButton}>
+          <IconButton edge="start" color="primary" aria-label="menu" onClick={() => setDrawerOpen(!drawerOpen)}>
             {drawerOpen ? <CloseMenu /> : <MenuIcon />}
           </IconButton>
-        </Box>
+        </div>
 
-        <Box
-          sx={{
-            display: {
-              xs: 'none',
-              sm: 'flex',
-            },
-            gap: '0.5rem',
-          }}
-        >
+        <nav className={styles.nav}>
           {LINKS.map(({ text, href }) => (
             <Button key={text} component={Link} href={href}>
               {text}
             </Button>
           ))}
-        </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            gap: '0.5rem',
-          }}
-        >
+        </nav>
+        <nav className={styles.iconButtonContainer}>
           {ICON_LINKS.map(item => (
             <IconButton
               key={item.label}
               edge="start"
               color="primary"
               aria-label={item.label}
-              sx={{ mr: '0.2rem', ml: '0.2rem' }}
               component={Link}
               href={item.href}
               target="_blank"
@@ -105,8 +64,8 @@ export function Header() {
               <item.icon />
             </IconButton>
           ))}
-        </Box>
-      </Box>
+        </nav>
+      </header>
       <MenuDrawer links={LINKS} open={drawerOpen} onClose={() => setDrawerOpen(false)} />
     </>
   );
