@@ -12,12 +12,12 @@ import MenuDrawer from './MenuDrawer';
 
 const ICON_LINKS = [
   {
-    label: 'GitHub',
+    label: 'Link to GitHub',
     icon: GitHubIcon,
     href: 'https://github.com/samtmorgan',
   },
   {
-    text: 'LinkedIn',
+    label: 'Link to LinkedIn',
     icon: LinkedInIcon,
     href: 'https://www.linkedin.com/in/samuel-trindade-morgan-66804320/',
   },

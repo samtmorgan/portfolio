@@ -2,11 +2,12 @@ import * as React from 'react';
 import { PageBox } from '@/components/PageBox';
 import { PageText } from '@/components/PageText';
 import { Metadata } from 'next';
-import { titles } from '@/static/copy';
+import { metaDescriptions, metaTitles } from '@/static/copy';
 
 // this is managing meta content with the 'app router'
 export const metadata: Metadata = {
-  title: titles.about,
+  title: metaTitles.about,
+  description: metaDescriptions.about,
 };
 
 const title = 'About Me';

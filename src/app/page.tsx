@@ -4,7 +4,7 @@ import MediaCard from '@/components/MediaCard';
 import { PageText } from '@/components/PageText';
 import { PageBox } from '@/components/PageBox';
 import { ProjectType } from '@/types/types';
-import { titles } from '@/static/copy';
+import { metaTitles } from '@/static/copy';
 import { Metadata } from 'next';
 import thisSite from '../../public/thisSite.jpg';
 import recharts from '../../public/recharts.jpg';
@@ -65,7 +65,7 @@ const paragraphs = [
 
 // this is managing meta content with the 'app router'
 export const metadata: Metadata = {
-  title: titles.home,
+  title: metaTitles.home,
 };
 
 export default function Home() {

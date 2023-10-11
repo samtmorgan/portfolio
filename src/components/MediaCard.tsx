@@ -17,6 +17,7 @@ export default function MediaCard({ project }: { project: ProjectType }) {
             alt={project.heading}
             src={project.image}
             priority={project.heading === 'Super Potato'}
+            loading={project.heading === 'Super Potato' ? 'eager' : 'lazy'}
             // width={640}
             // height={480}
             // fill

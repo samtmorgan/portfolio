@@ -7,6 +7,6 @@ export type ProjectType = {
   href: string;
 };
 
-export type Titles<T> = {
+export type MetaGeneric<T> = {
   [key: string]: T;
 };

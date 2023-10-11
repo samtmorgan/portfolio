@@ -3,55 +3,23 @@ import ThemeRegistry from '@/components/ThemeRegistry/ThemeRegistry';
 import { Header } from '@/components/Header';
 import { Box } from '@mui/material';
 import { Footer } from '@/components/Footer';
-import { metaDescription, metaKeywords, titles } from '@/static/copy';
+import { metaDescriptions, metaKeywords, metaTitles } from '@/static/copy';
 import { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/react';
 
-// const DRAWER_WIDTH = 240;
 export const metadata: Metadata = {
-  title: titles.root,
-  description: metaDescription,
+  title: metaTitles.root,
+  description: metaDescriptions.root,
   keywords: metaKeywords,
+  //   con,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // // const [drawerOpen, setDrawerOpen] = React.useState(false);
-
-  // const toggleDrawer =
-  // 	() => (event: React.KeyboardEvent | React.MouseEvent) => {
-  // 		if (
-  // 			event.type === 'keydown' &&
-  // 			((event as React.KeyboardEvent).key === 'Tab' ||
-  // 				(event as React.KeyboardEvent).key === 'Shift')
-  // 		) {
-  // 			return;
-  // 		}
-
-  // 		setDrawerOpen(false);
-  // 	};
-
   return (
     <html lang="en">
-      {/* <head>
-				<title>{titles.root}</title>
-			<meta property="title" content={titles.root} key="title" />
-				<meta name="description" content={metaDescription} />
-				<meta name="keywords" content={metaKeywords} />
-			</head>
-			 <Head>
-				<title>hello</title>
-				<meta property="og:title" content={titles.root} key="title" />
-				<meta name="description" content={metaDescription} />
-				<meta name="keywords" content={metaKeywords} />
-			</Head> */}
       <body style={{ padding: '0px !important' }}>
         <ThemeRegistry>
           <Header />
-          {/* <MenuDrawer
-						links={LINKS}
-						open={drawerOpen}
-						onClose={toggleDrawer}
-					/> */}
-
           <Box
             component="main"
             sx={{
@@ -62,6 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             }}
           >
             {children}
+            <Analytics />
           </Box>
           <Footer />
         </ThemeRegistry>
