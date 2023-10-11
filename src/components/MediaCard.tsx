@@ -9,7 +9,7 @@ import styles from './style/mediaCard.module.css';
 
 export default function MediaCard({ project }: { project: ProjectType }) {
   return (
-    <Card sx={{ borderRadius: 0 }}>
+    <Card>
       <Link underline="none" href={project.href || ''} target="blank">
         <CardActionArea>
           <Image
@@ -18,14 +18,6 @@ export default function MediaCard({ project }: { project: ProjectType }) {
             src={project.image}
             priority={project.heading === 'Super Potato'}
             loading={project.heading === 'Super Potato' ? 'eager' : 'lazy'}
-            // width={640}
-            // height={480}
-            // fill
-            style={{
-              // width: '100%',
-              // height: '500px',
-              objectFit: 'contain',
-            }}
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
@@ -35,10 +27,6 @@ export default function MediaCard({ project }: { project: ProjectType }) {
               {project.description}
             </Typography>
           </CardContent>
-          {/* <CardActions>
-					<Button size="small">Share</Button>
-					<Button size="small">Learn More</Button>
-				</CardActions> */}
         </CardActionArea>
       </Link>
     </Card>

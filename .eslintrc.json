@@ -96,6 +96,7 @@
         "ignoreRestSiblings": true,
         "argsIgnorePattern": "^_"
       }
-    ]
+    ],
+    "@next/next/no-document-import-in-page": "off"
   }
 }

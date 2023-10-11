@@ -11,6 +11,7 @@ import * as yup from 'yup';
 import { CopyToClipboardButton } from '@/components/CopyToClipboardButton';
 import { Send } from '@mui/icons-material';
 import styles from '../app/page.module.css';
+import '../app/globals.css';
 
 interface DataInterface {
   name: string;
@@ -124,12 +125,11 @@ export default function ContactFrom() {
   );
 
   return (
-    <Box className={styles.pageContainer}>
-      <Box className={styles.contactFormPageContainer}>
-        <Typography role="heading" variant="body1" gutterBottom>
-          Want to connect? Send me a message!
-        </Typography>
-        <form data-testid="contactForm" onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>
+    <article className={styles.pageContainer}>
+      <h1>Want to connect?</h1>
+      <h2>Send me a message!</h2>
+      <div className={styles.contactFormOuterContainer}>
+        <form data-testid="contactForm" onSubmit={handleSubmit(onSubmit)}>
           <Box className={styles.contactFormContainer}>
             <FormTextField
               error={!!errors.name}
@@ -153,43 +153,16 @@ export default function ContactFrom() {
               label="Message"
               multiline
             />
-            {/* <Controller
-							name="message"
-							control={control}
-							render={({ field }) => (
-								<TextField
-									rows={4}
-									size="small"
-									multiline
-									fullWidth
-									error={!!errors.message}
-									helperText={errors.message?.message}
-									data-testid="name"
-									label="Message"
-									{...field}
-								/>
-							)}
-						/> */}
-            {/* <input type="text" name="contact_number" />
-						<label>Message</label>
-						<textarea
-							id="w3review"
-							name="w3review"
-							rows={4}
-							// cols={50}
-						/> */}
             <Button startIcon={<Send />} fullWidth variant="outlined" type="submit">
               Send
             </Button>
+            <Typography role="heading" variant="body1" gutterBottom>
+              Or send me an email
+            </Typography>
+            <CopyToClipboardButton resourceName="Email address" resourceValue="samtmorgan01@gmail.com" />
           </Box>
         </form>
-        <Box sx={{ width: '100%' }}>
-          <Typography role="heading" variant="body1" gutterBottom>
-            Or send me an email
-          </Typography>
-          <CopyToClipboardButton resourceName="Email address" resourceValue="samtmorgan01@gmail.com" />
-        </Box>
-      </Box>
+      </div>
       <Snackbar
         open={open}
         autoHideDuration={6000}
@@ -206,6 +179,6 @@ export default function ContactFrom() {
           {submitSuccess ? 'Message sent successfully!' : 'Message failed to send!'}
         </Alert>
       </Snackbar>
-    </Box>
+    </article>
   );
 }

@@ -1,8 +1,6 @@
 import React from 'react';
-import { Box, Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import MediaCard from '@/components/MediaCard';
-import { PageText } from '@/components/PageText';
-import { PageBox } from '@/components/PageBox';
 import { ProjectType } from '@/types/types';
 import { metaTitles } from '@/static/copy';
 import { Metadata } from 'next';
@@ -11,6 +9,8 @@ import recharts from '../../public/recharts.jpg';
 import starWars from '../../public/starWars.jpg';
 import brunswick from '../../public/brunswick.jpg';
 import superPotato from '../../public/superPotato.jpg';
+import styles from './page.module.css';
+import './globals.css';
 
 const PLACEHOLDER_PROJECTS: ProjectType[] = [
   {
@@ -25,7 +25,7 @@ const PLACEHOLDER_PROJECTS: ProjectType[] = [
     description: `This is my personal site built with Next.js and MUI using TypeScript, deployed 
     on Vercel.`,
     image: thisSite,
-    href: 'https://portfolio-five-lemon-11.vercel.app/',
+    href: 'https://samtmorgan.com/',
   },
   {
     heading: 'App for property marketing suite',
@@ -52,15 +52,6 @@ const PLACEHOLDER_PROJECTS: ProjectType[] = [
     image: starWars,
     href: 'https://samtmorgan.github.io/random-star-wars-quotes/',
   },
-  // { label: 'Project 4', description: 'This is a description of project 4' },
-];
-
-const title = 'Sam T Morgan';
-const paragraphs = [
-  'Fullstack software engineer with a primary focus on Frontend development',
-  `I build responsive websites and applications using modern web technologies and frameworks
-  such as React, Next.js, and Material-UI.`,
-  'On this site you can find some of my projects, find out about about me and get in touch.',
 ];
 
 // this is managing meta content with the 'app router'
@@ -70,32 +61,27 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <PageBox>
-      <PageText title={title} paragraphs={paragraphs} />
-      <Box id="projects" sx={{ pt: 20, mb: '4rem' }}>
-        <Typography
-          sx={{
-            fontSize: { sm: '4rem', xs: '2rem' },
-            fontWeight: 'bold',
-          }}
-          gutterBottom
-          variant="h2"
-        >
-          Projects
-        </Typography>
+    <article>
+      <section>
+        <h1>Sam T Morgan</h1>
+        <p>Fullstack software engineer with a primary focus on Frontend development.</p>
+        <p>
+          I build responsive websites and applications using modern web technologies and frameworks including React,
+          Next.js, Material-UI and Tailwind CSS.
+        </p>
+        <p>On this site you can find some of my projects, find out about about me and get in touch.</p>
+      </section>
+      <section id="projects" className={styles.projectsHomeSection}>
+        <h2>Projects</h2>
 
-        <Grid
-          container
-          // rowSpacing={3} columnSpacing={3}
-          spacing={10}
-        >
+        <Grid container spacing={10}>
           {PLACEHOLDER_PROJECTS.slice(0, 5).map(project => (
             <Grid item key={project.heading} xs={12} sm={12}>
               <MediaCard project={project} />
             </Grid>
           ))}
         </Grid>
-      </Box>
-    </PageBox>
+      </section>
+    </article>
   );
 }
