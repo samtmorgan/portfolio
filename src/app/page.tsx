@@ -15,8 +15,8 @@ import './globals.css';
 const PLACEHOLDER_PROJECTS: ProjectType[] = [
   {
     heading: 'Super Potato',
-    description: `A very simple weather app, primarily used as a platform to explore different tooling, there are
-    more features to add to this project which built with Next.js and TypeScript, styled with Tailwind.`,
+    description: `A simple weather app, primarily used as a platform to explore different tooling and APIs, there are
+    more features to add to this project which is built with Next.js and TypeScript, styled with Tailwind.`,
     image: superPotato,
     href: 'https://super-potato-samtmorgan.vercel.app/',
   },
