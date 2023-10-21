@@ -65,8 +65,8 @@ function FormTextField({
           fullWidth
           error={error}
           helperText={helperText}
-          data-testid="name"
           label={label}
+          //   aria-label={label}
           {...field}
         />
       )}
@@ -129,7 +129,7 @@ export default function ContactFrom() {
       <h1>Want to connect?</h1>
       <h2>Send me a message!</h2>
       <div className={styles.contactFormOuterContainer}>
-        <form data-testid="contactForm" onSubmit={handleSubmit(onSubmit)}>
+        <form aria-label="form" onSubmit={handleSubmit(onSubmit)}>
           <Box className={styles.contactFormContainer}>
             <FormTextField
               error={!!errors.name}
