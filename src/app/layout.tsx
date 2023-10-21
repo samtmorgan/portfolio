@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: metaTitles.root,
   description: metaDescriptions.root,
   keywords: metaKeywords,
+  robots: 'all',
+  themeColor: 'white',
+  manifest: `https://samtmorgan.com/site.webmanifest`,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
