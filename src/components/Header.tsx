@@ -7,6 +7,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseMenu from '@mui/icons-material/Close';
+import LaunchIcon from '@mui/icons-material/Launch';
 import MenuDrawer from './MenuDrawer';
 import styles from './style/header.module.css';
 
@@ -28,6 +29,11 @@ const LINKS = [
   { text: 'About', href: '/about' },
   { text: 'Projects', href: '/#projects' },
   { text: 'Contact', href: '/contact' },
+  {
+    text: 'CV',
+    href: 'https://samtmorgan.github.io/potential-enigma/Sam_Trindade_Morgan_CV.pdf',
+    icon: <LaunchIcon />,
+  },
 ];
 
 export function Header() {
@@ -43,8 +49,8 @@ export function Header() {
         </div>
 
         <nav className={styles.nav}>
-          {LINKS.map(({ text, href }) => (
-            <Button key={text} component={Link} href={href}>
+          {LINKS.map(({ text, href, icon }) => (
+            <Button endIcon={icon} key={text} component={Link} href={href}>
               {text}
             </Button>
           ))}
