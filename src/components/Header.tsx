@@ -20,7 +20,7 @@ const ICON_LINKS = [
   {
     label: 'Link to LinkedIn',
     icon: LinkedInIcon,
-    href: 'www.linkedin.com/in/sam-t-morgan',
+    href: 'https://www.linkedin.com/in/sam-t-morgan',
   },
 ];
 
