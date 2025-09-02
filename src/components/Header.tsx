@@ -20,7 +20,7 @@ const ICON_LINKS = [
   {
     label: 'Link to LinkedIn',
     icon: LinkedInIcon,
-    href: 'https://www.linkedin.com/in/samuel-trindade-morgan-66804320/',
+    href: 'www.linkedin.com/in/sam-t-morgan',
   },
 ];
 
