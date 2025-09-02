@@ -28,7 +28,7 @@ const LINKS = [
   { text: 'Home', href: '/' },
   { text: 'About', href: '/about' },
   { text: 'Projects', href: '/#projects' },
-//    { text: 'Contact', href: '/contact' },
+  // { text: 'Contact', href: '/contact' },
   {
     text: 'CV',
     href: 'https://samtmorgan.github.io/potential-enigma/Sam_Trindade_Morgan_CV.pdf',
