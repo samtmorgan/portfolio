@@ -1,33 +1,33 @@
-import * as React from 'react';
-import ThemeRegistry from '@/components/ThemeRegistry/ThemeRegistry';
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
-import { metaDescriptions, metaKeywords, metaTitles } from '@/static/copy';
-import { Metadata } from 'next';
-import { Analytics } from '@vercel/analytics/react';
-import './globals.css';
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
-  title: metaTitles.root,
-  description: metaDescriptions.root,
-  keywords: metaKeywords,
-  robots: 'all',
-  //   themeColor: 'white',
-  //   manifest: `https://samtmorgan.com/site.webmanifest`,
+  title: "Sam Trindade Morgan | Full Stack Developer",
+  description: "Full Stack Developer based in London, UK. Specialises in React and Next.js.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
-      <body>
-        <ThemeRegistry>
-          <Header />
-          <main>
-            {children}
-            <Analytics />
-          </main>
-          <Footer />
-        </ThemeRegistry>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <main>{children}</main>
       </body>
     </html>
   );

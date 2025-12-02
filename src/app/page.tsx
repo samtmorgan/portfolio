@@ -1,87 +1,51 @@
-import React from 'react';
-import { Grid } from '@mui/material';
-import MediaCard from '@/components/MediaCard';
-import { ProjectType } from '@/types/types';
-import { metaTitles } from '@/static/copy';
-import { Metadata } from 'next';
-import thisSite from '../../public/thisSite.jpg';
-import recharts from '../../public/recharts.jpg';
-import starWars from '../../public/starWars.jpg';
-import brunswick from '../../public/brunswick.jpg';
-import superPotato from '../../public/superPotato.jpg';
-import styles from './page.module.css';
-import './globals.css';
-
-const PLACEHOLDER_PROJECTS: ProjectType[] = [
-  {
-    heading: 'Super Potato',
-    description: `A simple weather app, primarily used as a platform to explore different tooling and APIs, there are
-    more features to add to this project which is built with Next.js and TypeScript, styled with Tailwind.`,
-    image: superPotato,
-    href: 'https://super-potato-samtmorgan.vercel.app/',
-  },
-  {
-    heading: 'My personal site',
-    description: `This is my personal site built with Next.js and MUI using TypeScript, deployed 
-    on Vercel.`,
-    image: thisSite,
-    href: 'https://samtmorgan.com/',
-  },
-  {
-    heading: 'App for property marketing suite',
-    description: `Used on a tablet to control the lighting in an interactive model of a new 
-    property development which allows the user to see where different apartments are located
-    in the development. The app controls the lighting via the lighting controller API. Built
-    with React and React-Bootstrap, in production the app is hosted on a Apache web server
-    running on a Raspberry pi.`,
-    image: brunswick,
-    href: 'https://samtmorgan.github.io/bm_clarion_brunswick/',
-  },
-  {
-    heading: 'Recharts library',
-    description: `Recharts is a composable open source charting library, I have used the library 
-    extensively in my professional work and have previously made a modest contribution to the project
-    storybook.`,
-    image: recharts,
-    href: 'https://recharts.org/en-US/storybook',
-  },
-  {
-    heading: 'Star Wars quotes',
-    description: `Made in a galaxy far far away as a Free Code Camp project. Built with React and 
-    React-Bootstrap, deployed on GitHub Pages.`,
-    image: starWars,
-    href: 'https://samtmorgan.github.io/random-star-wars-quotes/',
-  },
-];
-
-// this is managing meta content with the 'app router'
-export const metadata: Metadata = {
-  title: metaTitles.home,
-};
-
 export default function Home() {
   return (
-    <article>
-      <section>
-        <h1>Sam T Morgan</h1>
-        <p>Fullstack software engineer with a primary focus on Frontend development.</p>
-        <p>
-          I build responsive websites and applications using modern web technologies and frameworks including React,
-          Next.js, Material-UI and Tailwind CSS.
-        </p>
-        <p>On this site you can find some of my projects, find out about about me and get in touch.</p>
-      </section>
-      <section id="projects" className={styles.projectsHomeSection}>
-        <h2>Projects</h2>
+    <section className="relative min-h-dvh flex flex-col items-center justify-center px-6 py-12 overflow-hidden">
+      {/* Organic morphing shape */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div 
+          className="absolute top-1/2 left-1/2 w-[280px] h-[280px] sm:w-[360px] sm:h-[360px] md:w-[440px] md:h-[440px] bg-gradient-to-br from-gray-100 to-gray-200 animate-morph"
+          style={{ transform: 'translate(-50%, -50%)' }}
+        />
+      </div>
 
-        <Grid container spacing={10}>
-          {PLACEHOLDER_PROJECTS.slice(0, 5).map(project => (
-            <Grid item key={project.heading} xs={12} sm={12}>
-              <MediaCard project={project} />
-            </Grid>
-          ))}
-        </Grid>
-      </section>
-    </article>
+      {/* Content */}
+      <div className="relative z-10 text-center max-w-md sm:max-w-lg md:max-w-xl">
+        {/* Main text */}
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight mb-4 sm:mb-6 opacity-0 animate-fade-in-up delay-100 animate-float">
+          Good things
+          <br />
+          <span className="font-normal">are coming</span>
+        </h1>
+
+        {/* Subtitle */}
+        <p className="text-sm sm:text-base md:text-lg text-black/50 mb-10 sm:mb-12 md:mb-14 opacity-0 animate-fade-in-up delay-200">
+          Something new is in the works.
+        </p>
+
+        {/* Shimmer divider */}
+        <div className="w-16 sm:w-20 md:w-24 h-px mx-auto mb-10 sm:mb-12 md:mb-14 animate-shimmer opacity-0 animate-fade-in-up delay-300" />
+
+        {/* LinkedIn link */}
+        <a
+          href="https://www.linkedin.com/in/sam-t-morgan"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 sm:gap-3 text-black/60 hover:text-black transition-colors duration-300 group opacity-0 animate-fade-in-up delay-400"
+        >
+          <svg
+            className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 group-hover:scale-110"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+          </svg>
+          <span className="text-sm sm:text-base font-medium tracking-wide">
+            Connect with me
+          </span>
+        </a>
+      </div>
+    </section>
   );
 }
