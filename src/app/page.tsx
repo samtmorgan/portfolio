@@ -4,8 +4,8 @@ export default function Home() {
       {/* Organic morphing shape */}
       <div className="absolute inset-0 pointer-events-none">
         <div 
-          className="absolute top-1/2 left-1/2 w-[280px] h-[280px] sm:w-[360px] sm:h-[360px] md:w-[440px] md:h-[440px] bg-gradient-to-br from-gray-100 to-gray-200 animate-morph"
-          style={{ transform: 'translate(-50%, -50%)' }}
+          className="absolute top-1/2 left-1/2 w-[340px] h-[340px] sm:w-[440px] sm:h-[440px] md:w-[540px] md:h-[540px] blur-2xl opacity-80 animate-morph"
+          style={{ transform: 'translate(-50%, -50%)', background: 'linear-gradient(to bottom right, #fb923c, #f87171, #ff7f50)' }}
         />
       </div>
 
@@ -46,6 +46,13 @@ export default function Home() {
           </span>
         </a>
       </div>
+
+      {/* Footer */}
+      <footer className="absolute bottom-6 left-0 right-0 text-center">
+        <p className="text-xs sm:text-sm text-black/40">
+          © {new Date().getFullYear()} Sam T Morgan
+        </p>
+      </footer>
     </section>
   );
 }
